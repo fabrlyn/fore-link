@@ -20,3 +20,8 @@ mod character;
 mod lowercase_alpha;
 mod number;
 mod regular_relation_type;
+mod external_relation_type;
+mod uri;
+mod relation_type;
+mod relation_types;
+mod qouted_media_type;

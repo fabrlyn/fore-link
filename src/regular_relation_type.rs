@@ -11,7 +11,7 @@ use crate::{
 pub struct RegularRelationType<'a>(LowercaseAlpha, Vec<Component<'a>>);
 
 impl RegularRelationType<'_> {
-    fn parse(input: &str) -> IResult<&str, RegularRelationType<'_>> {
+    pub fn parse(input: &str) -> IResult<&str, RegularRelationType<'_>> {
         map(
             tuple((LowercaseAlpha::parse, many0(Component::parse))),
             |(a, b)| RegularRelationType(a, b),
