@@ -1,10 +1,12 @@
-use nom::IResult;
+use nom::{combinator::map, multi::many1, IResult};
 
-pub struct PToken<'a>(&'a str);
+use crate::ptoken_char::PTokenChar;
 
-impl<'a> PToken<'a> {
-    pub fn parse(input: &str) -> IResult<&str, PToken<'_>> {
-        todo!()
+pub struct PToken(Vec<PTokenChar>);
+
+impl PToken {
+    pub fn parse(input: &str) -> IResult<&str, PToken> {
+        map(many1(PTokenChar::parse), PToken)(input)
     }
 }
 
